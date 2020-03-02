@@ -138,8 +138,9 @@ function vsftpdquest() {
 }
 
 while true
-do    
-    printf "Welcome to the Administrator's simple toolbox\n"
+do
+    clear
+    printf "Welcome to the RHEL/CentOS Administrator's simple toolbox\n"
     printf "Please enter your desired option\n"
     printf "1) Install and enable Apache Web Server\n"
     printf "2) Install and enable NGINX Web Server\n"
@@ -161,6 +162,7 @@ do
 	    exit 1
 	    ;;
 	*)
+	    clear
 	    printf "Unknown Option\n"
 	    ;;
     esac
