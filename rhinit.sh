@@ -140,7 +140,7 @@ function vsftpdquest() {
 while true
 do
     clear
-    printf "*** THIS TOOL IS BASED ON RHEL/CentOS 8 ***"
+    printf "*** THIS TOOL IS BASED ON RHEL/CentOS 8 ***\n"
     printf "Welcome to the RHEL/CentOS Administrator's simple toolbox\n"
     printf "Please enter your desired option\n"
     printf "1) Install and enable Apache Web Server\n"
