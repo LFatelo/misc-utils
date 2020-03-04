@@ -88,6 +88,7 @@ menu() {
     while true
     do
 	clear
+	printf "*** THIS TOOL IS BASED ON FreeBSD 12.1-RELEASE ***\m"
 	printf "Welcome to the FreeBSD server initializer\n"
 	printf "Please enter your desired option\n"
 	printf "0) Exit\n"
