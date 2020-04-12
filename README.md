@@ -1,7 +1,8 @@
 # misc-utils
 Miscellaneous scripts for automating miscellaneous tasks  
 All scripts in here are **works in progress**  
-  
+In the near-future all of the functionality within these scripts will most likely be merged into larger Ansible playbooks.
+
 **freebsdinitialization.sh**  
 A simple script that will install on a FreeBSD host useful tools. Optionally it may also install HTTP and FTP servers.
 
