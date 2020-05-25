@@ -75,7 +75,8 @@ function sechard() {
 	printf "*** SECURITY HARDENING ***\n"
 	printf "Select an option\n"
 	printf "1) Install and enable firewall\n"
-#	printf "2) Install and enable AppArmor\n" not available yet
+	printf "2) Remove insecure services (if they exist)\n"
+	printf "0) Return to previous menu\n"
 	read OPTION
 
 	case $OPTION in
@@ -83,7 +84,10 @@ function sechard() {
 		fireinst
 		;;
 	    2)
-		apparmorinst
+		insec
+		;;
+	    0)
+		menu
 		;;
 	    *)
 		read -n 1 -s -r -p "Invalid option. Press any key and try again\n"
@@ -100,6 +104,7 @@ function fireinst() {
 	printf "Select a firewall frontend\n"
 	printf "1) ufw\n"
 	printf "2) firewalld\n"
+	printf "0) Return to previous menu\n"
 	read OPTION
 
 	case $OPTION in
@@ -109,8 +114,8 @@ function fireinst() {
 	    2)
 		firewalldinst
 		;;
-	    3)
-		iptablesconf
+	    0)
+		sechard
 		;;
 	    *)
 		read -n 1 -s -r -p "Invalid option. Press any key and try again\n"
@@ -118,6 +123,45 @@ function fireinst() {
 		;;
 	esac	
     done
+}
+
+function insec() {
+    clear
+    while true
+    do
+	printf "*** INSECURE SERVICE REMOVAL ***\n"
+	printf "Please select an option\n"
+	printf "1) Remove Telnet services\n"
+	printf "2) Remove Rsh services\n"
+	printf "3) Remove TFTP services\n"
+	printf "4) All of the above\n"
+	printf "0) Return to previous menu\n"
+	read OPTION
+
+	case $OPTION in
+	    1)
+		apt purge -y telnetd
+		read -n 1 -s -r -p "Telnet service removed. Press any key to continue\n"
+		;;
+	    2)
+		apt purge -y rsh-server rsh-redone-server 
+		read -n 1 -s -r -p "Rsh services removed. Press any key to continue\n"
+		;;
+	    3)
+		apt purge -y tftpd atftpd tftpd-hpa
+		read -n 1 -s -r -p "TFTP services removed. Press any key to continue\n"
+		;;
+	    4)
+		apt purge -y telnetd rsh-server rsh-redone-server tftpd atftpd tftpd-hpa
+		read -n 1 -s -r -p "Services removed. Press any key to continue\n"
+		;;
+	    0)
+		sechard
+		;;
+	    *)
+		read -n 1 -s -r -p "Invalid option. Press any key and try again\n"		
+		;;
+	esac
 }
 
 function ufwinstaller() {
