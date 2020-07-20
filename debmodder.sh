@@ -364,7 +364,7 @@ function httpinstall() {
 			systemctl status apache2
 			read -n 1 -s -r -p "Installation successful. Server is now enabled on boot. Press any key to return to the previous menu"
 			httpinstall
-		    elif ["$apaopt" == "n" ]
+		    elif [ "$apaopt" == "n" ]
 			read -n 1 -s -r -p "Installation succesful. Press any key to return to the previous menu"
 			httpinstall
 		    else
